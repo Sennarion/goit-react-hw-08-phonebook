@@ -8,3 +8,4 @@ export { default as Button } from './Button/Button';
 export { Container } from './Container/Container.styled';
 export { Section } from './Section/Section.styled';
 export { SubTitle } from './SubTitle/SubTitle.styled';
+export { Input } from './Input/Input.styled';

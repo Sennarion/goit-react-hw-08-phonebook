@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { createContact } from 'redux/operations';
-import { getAllContacts } from 'redux/selectors';
-import { StyledForm, Input, LabelName } from './Form.styled';
-import { Button } from 'components';
+import { createContact } from 'redux/contacts/operations';
+import { selectAllContacts } from 'redux/contacts/selectors';
+import { StyledForm, LabelName } from './Form.styled';
+import { Button, Input } from 'components';
 
 export default function Form() {
   const dispatch = useDispatch();
-  const contacts = useSelector(getAllContacts);
+  const contacts = useSelector(selectAllContacts);
 
   const onFormSubmit = e => {
     e.preventDefault();
