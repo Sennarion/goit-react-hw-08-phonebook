@@ -1,16 +1,42 @@
-export const App = () => {
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getContacts } from 'redux/operations';
+import { GlobalStyleComponent } from 'styles/GlobalStyles.styled';
+import { Filter, ContactsList, Container, Section, Header } from './';
+import {
+  getAllContacts,
+  getErrorStatus,
+  getLoadingStatus,
+} from 'redux/selectors';
+import Loader from './Loader/Loader';
+
+export default function App() {
+  const dispatch = useDispatch();
+
+  const contacts = useSelector(getAllContacts);
+  const errorStatus = useSelector(getErrorStatus);
+  const loadingStatus = useSelector(getLoadingStatus);
+
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <Header />
+      <Section>
+        <Container>
+          {loadingStatus && <Loader />}
+          {errorStatus && <h2>{errorStatus}</h2>}
+          {contacts.length > 0 && (
+            <>
+              <Filter />
+              <ContactsList />
+            </>
+          )}
+        </Container>
+      </Section>
+      <GlobalStyleComponent />
+    </>
   );
-};
+}
