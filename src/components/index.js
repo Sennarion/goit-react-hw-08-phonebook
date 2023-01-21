@@ -3,9 +3,10 @@ export { default as ContactsListItem } from './ContactsListItem/ContactsListItem
 export { default as Filter } from './Filter/Filter';
 export { default as Form } from './Form/Form';
 export { default as Header } from './Header/Header';
-export { default as Button } from './Button/Button';
+export { default as Button } from './UI/Button/Button';
+export { default as Loader } from './UI/Loader/Loader';
 
-export { Container } from './Container/Container.styled';
-export { Section } from './Section/Section.styled';
-export { SubTitle } from './SubTitle/SubTitle.styled';
-export { Input } from './Input/Input.styled';
+export { Container } from './UI/Container/Container.styled';
+export { Section } from './UI/Section/Section.styled';
+export { SubTitle } from './UI/SubTitle/SubTitle.styled';
+export { Input } from './UI/Input/Input.styled';

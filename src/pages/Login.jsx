@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { Button, Input } from 'components';
+import { Button, Input, Container } from 'components';
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -14,10 +14,12 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <Input type="email" name="email" />
-      <Input type="password" name="password" />
-      <Button type="submit">Login</Button>
-    </form>
+    <Container>
+      <form onSubmit={onSubmit}>
+        <Input type="email" name="email" />
+        <Input type="password" name="password" />
+        <Button type="submit">Login</Button>
+      </form>
+    </Container>
   );
 }

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
-import { Button, Input } from 'components';
+import { Button, Input, Container } from 'components';
 
 export default function Register() {
   const dispatch = useDispatch();
@@ -17,11 +17,13 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <Input type="text" name="name" />
-      <Input type="email" name="email" />
-      <Input type="password" name="password" />
-      <Button type="submit">Register</Button>
-    </form>
+    <Container>
+      <form onSubmit={onSubmit}>
+        <Input type="text" name="name" />
+        <Input type="email" name="email" />
+        <Input type="password" name="password" />
+        <Button type="submit">Register</Button>
+      </form>
+    </Container>
   );
 }

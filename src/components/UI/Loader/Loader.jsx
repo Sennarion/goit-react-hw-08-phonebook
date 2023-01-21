@@ -1,6 +1,6 @@
 import { ThreeDots } from 'react-loader-spinner';
 import { LoaderWrapper } from './Loader.styled';
-import { theme } from '../../styles/theme';
+import { theme } from '../../../styles/theme';
 
 function Loader() {
   return (

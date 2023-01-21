@@ -9,7 +9,7 @@ import {
   Nav,
   UserInfo,
 } from './Header.styled';
-import { Container, Button } from '../';
+import { Container, Button } from 'components';
 
 function Header() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function Header() {
           </Nav>
           {isLoggedIn && (
             <UserInfo>
-              <p>{user.name}</p>
+              <p>{user.email}</p>
               <Button type="button" onClick={() => dispatch(logOut())}>
                 Log out
               </Button>
