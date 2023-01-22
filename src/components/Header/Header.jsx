@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, selectIsLoggedIn } from 'redux/auth/selectors';
 import { logOut } from 'redux/auth/operations';
@@ -8,6 +7,7 @@ import {
   Logo,
   Nav,
   UserInfo,
+  NavItem,
 } from './Header.styled';
 import { Container, Button } from 'components';
 
@@ -22,13 +22,13 @@ function Header() {
         <HeaderContent>
           <Logo to="/">Phonebook</Logo>
           <Nav>
-            <NavLink to="/">Home</NavLink>
+            <NavItem to="/">Home</NavItem>
             {isLoggedIn ? (
-              <NavLink to="/contacts">Contacts</NavLink>
+              <NavItem to="/contacts">Contacts</NavItem>
             ) : (
               <>
-                <NavLink to="/register">Register</NavLink>
-                <NavLink to="/login">Login</NavLink>
+                <NavItem to="/register">Register</NavItem>
+                <NavItem to="/login">Login</NavItem>
               </>
             )}
           </Nav>

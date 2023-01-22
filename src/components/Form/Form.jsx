@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { createContact } from 'redux/contacts/operations';
 import { selectAllContacts } from 'redux/contacts/selectors';
-import { StyledForm, LabelName } from './Form.styled';
-import { Button, Input } from 'components';
+import { StyledForm, Input } from './Form.styled';
+import { Button } from 'components';
 
 export default function Form() {
   const dispatch = useDispatch();
@@ -25,7 +25,7 @@ export default function Form() {
   return (
     <StyledForm onSubmit={onFormSubmit}>
       <label>
-        <LabelName>Name</LabelName>
+        Name
         <Input
           type="text"
           name="name"
@@ -35,7 +35,7 @@ export default function Form() {
         />
       </label>
       <label>
-        <LabelName>Number</LabelName>
+        Number
         <Input
           type="tel"
           name="number"

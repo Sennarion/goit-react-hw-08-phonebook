@@ -9,4 +9,4 @@ export { default as Loader } from './UI/Loader/Loader';
 export { Container } from './UI/Container/Container.styled';
 export { Section } from './UI/Section/Section.styled';
 export { SubTitle } from './UI/SubTitle/SubTitle.styled';
-export { Input } from './UI/Input/Input.styled';
+export { AnimateBg } from './UI/AnimateBg/AnimateBg.styled';

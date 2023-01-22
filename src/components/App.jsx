@@ -9,10 +9,10 @@ import { selectIsRefreshing } from 'redux/auth/selectors';
 import SharedLayout from './SharedLayout/SharedLayout';
 import Loader from './UI/Loader/Loader';
 
-const Home = lazy(() => import('pages/Home'));
-const Contacts = lazy(() => import('pages/Contacts'));
-const Login = lazy(() => import('pages/Login'));
-const Register = lazy(() => import('pages/Register'));
+const Home = lazy(() => import('pages/Home/Home'));
+const Contacts = lazy(() => import('pages/Home/Contacts'));
+const Login = lazy(() => import('pages/Login/Login'));
+const Register = lazy(() => import('pages/Register/Register'));
 
 export default function App() {
   const dispatch = useDispatch();
