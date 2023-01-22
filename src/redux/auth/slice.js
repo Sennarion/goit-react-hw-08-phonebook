@@ -8,6 +8,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
+  error: null,
 };
 
 const persistConfig = {
@@ -28,14 +29,17 @@ const authSlice = createSlice({
         state.user = payload;
         state.isLoggedIn = true;
         state.isRefreshing = false;
+        state.error = null;
       })
-      .addCase(refreshUser.rejected, state => {
+      .addCase(refreshUser.rejected, (state, { payload }) => {
         state.isRefreshing = false;
+        state.error = payload;
       })
       .addCase(logOut.fulfilled, state => {
         state.user = initialState.user;
         state.token = null;
         state.isLoggedIn = false;
+        state.error = null;
       })
       .addMatcher(
         isAnyOf(register.fulfilled, logIn.fulfilled),
@@ -43,6 +47,13 @@ const authSlice = createSlice({
           state.user = payload.user;
           state.token = payload.token;
           state.isLoggedIn = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(register.rejected, logIn.rejected, logOut.rejected),
+        (state, { payload }) => {
+          state.error = payload;
         }
       ),
 });

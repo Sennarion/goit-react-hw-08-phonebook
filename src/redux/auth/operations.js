@@ -19,8 +19,8 @@ export const register = createAsyncThunk(
       const { data } = await axios.post('/users/signup', credentials);
       token.set(data.token);
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch {
+      return rejectWithValue('Failed to register. Username already exists');
     }
   }
 );
@@ -32,8 +32,8 @@ export const logIn = createAsyncThunk(
       const { data } = await axios.post('/users/login', credentials);
       token.set(data.token);
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch {
+      return rejectWithValue('Failed to log in. Incorrect email or password');
     }
   }
 );
@@ -45,8 +45,8 @@ export const logOut = createAsyncThunk(
       const { data } = await axios.post('/users/logout');
       token.unset();
       return data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch {
+      return rejectWithValue('Failed to log out');
     }
   }
 );
@@ -58,15 +58,15 @@ export const refreshUser = createAsyncThunk(
     const persistedToken = state.auth.token;
 
     if (persistedToken === null) {
-      return rejectWithValue('Unable to fetch user');
+      return rejectWithValue(null);
     }
 
     try {
       token.set(persistedToken);
       const res = await axios.get('/users/current');
       return res.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    } catch {
+      return rejectWithValue('Failed to get user');
     }
   }
 );

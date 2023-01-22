@@ -14,4 +14,4 @@ export const selectFilteredContacts = createSelector(
 
 export const selectLoadingStatus = state => state.contacts.isLoading;
 
-export const selectErrorStatus = state => state.contacts.error;
+export const selectContactsErrorStatus = state => state.contacts.error;
